@@ -1,6 +1,46 @@
-@UrlShortener_HostAddress = http://localhost:5025
+﻿@UrlShortener_HostAddress = http://localhost:5025
+@ContentType = application/json
 
-GET {{UrlShortener_HostAddress}}/weatherforecast/
+### 🟢 Get all shortened URLs
+GET {{UrlShortener_HostAddress}}/api/Urls
 Accept: application/json
 
 ###
+
+### 🟢 Get a specific URL mapping by ID
+GET {{UrlShortener_HostAddress}}/api/Urls/1
+Accept: application/json
+
+###
+
+### 🟢 Create a new shortened URL
+POST {{UrlShortener_HostAddress}}/api/Urls
+Content-Type: {{ContentType}}
+
+{
+  "longUrl": "https://www.microsoft.com",
+  "customCode": "msoft",          // optional
+  "expirationDate": "2025-12-31"  // optional
+}
+
+###
+
+### 🟢 Update an existing shortened URL
+PUT {{UrlShortener_HostAddress}}/api/Urls/1
+Content-Type: {{ContentType}}
+
+{
+  "longUrl": "https://www.updatedexample.com",
+  "customCode": "updated123",
+  "expirationDate": "2026-01-01"
+}
+
+###
+
+### 🟠 Delete a shortened URL
+DELETE {{UrlShortener_HostAddress}}/api/Urls/1
+
+###
+
+### 🟢 Redirect test (simulate visiting the short URL)
+GET {{UrlShortener_HostAddress}}/r/msoft

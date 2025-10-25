@@ -29,13 +29,22 @@ builder.Services.AddScoped<IUrlRepository, UrlRepository>();
 builder.Services.AddScoped<IUrlService, UrlService>();
 
 // Option 1: Allow all (for development)
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-        policy.AllowAnyOrigin()
-              .AllowAnyHeader()
-              .AllowAnyMethod());
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll", policy =>
+//        policy.AllowAnyOrigin()
+//              .AllowAnyHeader()
+//              .AllowAnyMethod());
+//});
+
+// Option 2 (recommended for production):
+ builder.Services.AddCors(options =>
+ {
+     options.AddPolicy("FrontendPolicy", policy =>
+         policy.WithOrigins("http://localhost:3000")
+               .AllowAnyHeader()
+               .AllowAnyMethod());
+ });
 
 // Swagger/OpenAPI
 builder.Services.AddSwaggerGen(c =>
@@ -63,6 +72,7 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseCors("FrontendPolicy");
 app.UseAuthorization();
 app.MapControllers();
 

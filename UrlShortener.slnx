@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Application/Application.csproj" Id="7f2bb251-07c0-462e-ba86-e750e34bc2f9" />
+    <Project Path="Domain/Domain.csproj" Id="e306031c-017a-4664-8900-781c11a1de65" />
+    <Project Path="Infrastructure/Infrastructure.csproj" Id="53cb6bab-814b-4a25-a9ec-dd81cf41be2c" />
+    <Project Path="UrlShortener/UrlShortener.API.csproj" />
+  </Folder>
+</Solution>

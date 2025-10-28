@@ -19,8 +19,8 @@ Content-Type: {{ContentType}}
 
 {
   "longUrl": "https://www.microsoft.com",
-  "customCode": "msoft",          // optional
-  "expirationDate": "2025-12-31"  // optional
+  "customShortCode": "msoft",          // optional
+  "expirationUtc": "2025-12-31"  // optional
 }
 
 ###
@@ -31,8 +31,7 @@ Content-Type: {{ContentType}}
 
 {
   "longUrl": "https://www.updatedexample.com",
-  "customCode": "updated123",
-  "expirationDate": "2026-01-01"
+  "expirationUtc": "2026-01-01"
 }
 
 ###
